@@ -4,9 +4,10 @@ Set of basic examples of Cassandra Usage
 
 ## Demos
 1. Connection (cc) - Cassandra DB connection reading system data.
-2. Connection Listener (clc) - Usage of connection listener
-3. Session (sc) - Connection Session to Cassandra
-
+2. Connection Listener (clc) - Usage of connection listener.
+3. Session (sc) - Connection Session to Cassandra.
+4. Simple Statement (ssc) - Execute a simple CQL statement.
+5. Prepared Statement (psc) - Execute a prepared CQL statement.
 
 ### Notes
 - Arguments to run are in ()
