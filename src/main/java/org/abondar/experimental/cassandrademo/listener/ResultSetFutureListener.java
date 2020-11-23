@@ -1,16 +1,14 @@
-package org.abondar.experimental.cassandrademo.command;
+package org.abondar.experimental.cassandrademo.listener;
 
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;
 import com.datastax.driver.core.Host.StateListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class ResultSetFutureDemo implements StateListener {
+public class ResultSetFutureListener implements StateListener {
 
-    public ResultSetFutureDemo() {
+    public ResultSetFutureListener() {
         super();
     }
 
@@ -53,12 +51,4 @@ public class ResultSetFutureDemo implements StateListener {
     }
 
 
-    public static void main(String[] args) {
-           List<StateListener> list = new ArrayList<>();
-           list.add(new ResultSetFutureDemo());
-
-           Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").withInitialListeners(list).build();
-
-           cluster.init();
-    }
 }

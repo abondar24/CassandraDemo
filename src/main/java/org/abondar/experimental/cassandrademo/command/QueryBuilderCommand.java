@@ -15,7 +15,7 @@ public class QueryBuilderCommand implements Command {
 
     @Override
     public void execute() {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
         Session session = cluster.connect("hotel");
         String id = "AZ789";
 
