@@ -1,12 +1,15 @@
 package org.abondar.experimental.cassandrademo.command;
 
 import com.datastax.driver.core.*;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
 import java.text.SimpleDateFormat;
 
-public class SimpleStatementDemo {
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+public class SimpleStatementCommand implements Command {
+
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
 
         Session session = cluster.connect("hotel");
 
@@ -58,7 +61,6 @@ public class SimpleStatementDemo {
 
         cluster.close();
         System.exit(0);
-
 
     }
 }

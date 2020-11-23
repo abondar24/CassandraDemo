@@ -4,6 +4,7 @@ package org.abondar.experimental.cassandrademo.command.util;
 import org.abondar.experimental.cassandrademo.command.ConnectionCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
 import org.abondar.experimental.cassandrademo.command.SessionCommand;
+import org.abondar.experimental.cassandrademo.command.SimpleStatementCommand;
 
 public class CommandSwitcher {
 
@@ -30,6 +31,11 @@ public class CommandSwitcher {
                 case SC:
                     SessionCommand sc = new SessionCommand();
                     executor.executeCommand(sc);
+                    break;
+
+                case SSC:
+                    SimpleStatementCommand ssc = new SimpleStatementCommand();
+                    executor.executeCommand(ssc);
                     break;
 
             }

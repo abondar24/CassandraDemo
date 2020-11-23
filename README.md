@@ -8,8 +8,9 @@ Set of basic examples of Cassandra Usage
 3. Session (sc) - Connection Session to Cassandra
 
 
-Arguments to run are in ()
-
+### Notes
+- Arguments to run are in ()
+- Some demos require keyspaces creation. Run hotel.cql and reservations.cql before running demos.
 ## Build and run
 
 ```yaml
