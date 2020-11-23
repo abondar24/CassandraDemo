@@ -4,6 +4,7 @@ Set of basic examples of Cassandra Usage
 
 ## Demos
 1. Connection (cc) - Cassandra DB connection reading system data.
+2. Connection Listener (clc) - Usage of connection listener
 
 Arguments to run are in ()
 
