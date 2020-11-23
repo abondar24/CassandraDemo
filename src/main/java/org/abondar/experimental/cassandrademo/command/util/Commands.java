@@ -6,6 +6,7 @@ public enum  Commands {
   PSC,
   QBC,
   RSFC,
+  SBC,
   SC,
   SSC,
 }

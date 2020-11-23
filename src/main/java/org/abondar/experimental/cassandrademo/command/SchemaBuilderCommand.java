@@ -7,11 +7,13 @@ import com.datastax.driver.core.Metadata;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.schemabuilder.SchemaBuilder;
 import com.datastax.driver.core.schemabuilder.SchemaStatement;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
-public class SchemaBuilderDemo {
+public class SchemaBuilderCommand implements Command {
 
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
 
         Session session = cluster.connect("hotel");
 
@@ -31,5 +33,6 @@ public class SchemaBuilderDemo {
 
         cluster.close();
         System.exit(0);
+
     }
 }

@@ -6,6 +6,7 @@ import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
 import org.abondar.experimental.cassandrademo.command.PreparedStatementCommand;
 import org.abondar.experimental.cassandrademo.command.QueryBuilderCommand;
 import org.abondar.experimental.cassandrademo.command.ResultSetFutureCommand;
+import org.abondar.experimental.cassandrademo.command.SchemaBuilderCommand;
 import org.abondar.experimental.cassandrademo.command.SessionCommand;
 import org.abondar.experimental.cassandrademo.command.SimpleStatementCommand;
 
@@ -44,6 +45,11 @@ public class CommandSwitcher {
                 case RSFC:
                     ResultSetFutureCommand rsfc = new ResultSetFutureCommand();
                     executor.executeCommand(rsfc);
+                    break;
+
+                case SBC:
+                    SchemaBuilderCommand sbc = new SchemaBuilderCommand();
+                    executor.executeCommand(sbc);
                     break;
 
                 case SC:

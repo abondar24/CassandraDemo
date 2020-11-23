@@ -10,6 +10,7 @@ Set of basic examples of Cassandra Usage
 5. Prepared Statement (psc) - Execute a prepared CQL statement.
 6. Query Builder (qbc) - Execute a statement built by query builder.
 7. ResultSet Future Listener (rsfc) - State listener example.
+8. Schema Builder (sbc) - Schema builder usage example.
 
 ### Notes
 - Arguments to run are in ()
