@@ -4,6 +4,7 @@ public enum  Commands {
   BC,
   CC,
   CLC,
+  MC,
   PSC,
   QBC,
   RSFC,

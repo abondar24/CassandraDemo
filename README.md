@@ -13,6 +13,7 @@ Set of basic examples of Cassandra Usage
 8. Schema Builder (sbc) - Schema builder usage example.
 9. Transactions (tc) - Transactions in Cassandra example.
 10. Batch (bc) - Batch usage.
+11. Mapper (mc) - Mapper to Java POJO
 
 ### Notes
 - Arguments to run are in ()

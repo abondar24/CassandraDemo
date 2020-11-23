@@ -5,12 +5,19 @@ import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 import org.abondar.experimental.cassandrademo.data.Hotel;
 
-public class MapperDemo {
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
-        Session session = cluster.connect("hotel");
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.HOTEL_KEYSPACE;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.SERVER_IP;
+
+public class MapperCommand implements Command {
+
+
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint(SERVER_IP).build();
+        Session session = cluster.connect(HOTEL_KEYSPACE);
 
         MappingManager mappingManager = new MappingManager(session);
         Mapper<Hotel> hotelMapper = mappingManager.mapper(Hotel.class);
