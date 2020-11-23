@@ -2,13 +2,22 @@ package org.abondar.experimental.cassandrademo.command;
 
 
 import com.datastax.driver.core.*;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
-public class BatchDemo {
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.HOTEL_KEYSPACE;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.ID_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.NAME_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.PHONE_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.SERVER_IP;
 
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+public class BatchCommand implements Command {
 
-        Session session = cluster.connect("hotel");
+
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint(SERVER_IP).build();
+
+        Session session = cluster.connect(HOTEL_KEYSPACE);
 
         //hotel id
         String id = "AZ123";
@@ -46,8 +55,8 @@ public class BatchDemo {
         System.out.println(hotelSelectRes.getExecutionInfo().getQueryTrace());
 
         for (Row row: hotelSelectRes){
-            System.out.format("id: %s, name: %s, phone: %s\n\n", row.getString("id"),
-                    row.getString("name"), row.getString("phone"));
+            System.out.format("id: %s, name: %s, phone: %s\n\n", row.getString(ID_COLUMN),
+                    row.getString(NAME_COLUMN), row.getString(PHONE_COLUMN));
         }
 
         cluster.close();

@@ -1,6 +1,7 @@
 package org.abondar.experimental.cassandrademo.command.util;
 
 
+import org.abondar.experimental.cassandrademo.command.BatchCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
 import org.abondar.experimental.cassandrademo.command.PreparedStatementCommand;
@@ -23,6 +24,12 @@ public class CommandSwitcher {
     public void executeCommand(String cmd){
         try {
             switch (Commands.valueOf(cmd)){
+
+                case BC:
+                    BatchCommand bc = new BatchCommand();
+                    executor.executeCommand(bc);
+                    break;
+
                 case CC:
                     ConnectionCommand cc = new ConnectionCommand();
                     executor.executeCommand(cc);
