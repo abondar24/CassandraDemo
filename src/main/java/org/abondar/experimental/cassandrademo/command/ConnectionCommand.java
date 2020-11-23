@@ -4,11 +4,13 @@ package org.abondar.experimental.cassandrademo.command;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;
 import com.datastax.driver.core.Metadata;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
-public class ConnectionDemo {
+public class ConnectionCommand implements Command {
 
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
 
         cluster.init();
 
