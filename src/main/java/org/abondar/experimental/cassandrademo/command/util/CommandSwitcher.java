@@ -9,6 +9,7 @@ import org.abondar.experimental.cassandrademo.command.ResultSetFutureCommand;
 import org.abondar.experimental.cassandrademo.command.SchemaBuilderCommand;
 import org.abondar.experimental.cassandrademo.command.SessionCommand;
 import org.abondar.experimental.cassandrademo.command.SimpleStatementCommand;
+import org.abondar.experimental.cassandrademo.command.TransactionCommand;
 
 public class CommandSwitcher {
 
@@ -60,6 +61,11 @@ public class CommandSwitcher {
                 case SSC:
                     SimpleStatementCommand ssc = new SimpleStatementCommand();
                     executor.executeCommand(ssc);
+                    break;
+
+                case TC:
+                    TransactionCommand tc = new TransactionCommand();
+                    executor.executeCommand(tc);
                     break;
 
             }

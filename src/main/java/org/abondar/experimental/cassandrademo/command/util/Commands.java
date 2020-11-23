@@ -9,4 +9,5 @@ public enum  Commands {
   SBC,
   SC,
   SSC,
+  TC,
 }

@@ -11,10 +11,11 @@ Set of basic examples of Cassandra Usage
 6. Query Builder (qbc) - Execute a statement built by query builder.
 7. ResultSet Future Listener (rsfc) - State listener example.
 8. Schema Builder (sbc) - Schema builder usage example.
-
+9. Transactions (tc) - Transactions in Cassandra example.
 ### Notes
 - Arguments to run are in ()
 - Some demos require keyspaces creation. Run hotel.cql and reservations.cql before running demos.
+- Transactions demo requires two Cassandra nodes
 ## Build and run
 
 ```yaml
