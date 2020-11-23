@@ -1,10 +1,11 @@
-package org.abondar.experimental.cassandrademo;
+package org.abondar.experimental.cassandrademo.command;
 
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
+import org.abondar.experimental.cassandrademo.data.Hotel;
 
 public class MapperDemo {
     public static void main(String[] args) {

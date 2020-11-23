@@ -1,4 +1,4 @@
-package org.abondar.experimental.cassandrademo;
+package org.abondar.experimental.cassandrademo.data;
 
 import com.datastax.driver.mapping.annotations.Column;
 import com.datastax.driver.mapping.annotations.Frozen;

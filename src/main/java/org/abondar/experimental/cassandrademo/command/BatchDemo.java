@@ -1,4 +1,4 @@
-package org.abondar.experimental.cassandrademo;
+package org.abondar.experimental.cassandrademo.command;
 
 
 import com.datastax.driver.core.*;
