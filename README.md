@@ -8,6 +8,8 @@ Set of basic examples of Cassandra Usage
 3. Session (sc) - Connection Session to Cassandra.
 4. Simple Statement (ssc) - Execute a simple CQL statement.
 5. Prepared Statement (psc) - Execute a prepared CQL statement.
+6. Query Builder (qbc) - Execute a statement built by query builder.
+
 
 ### Notes
 - Arguments to run are in ()

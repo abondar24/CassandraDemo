@@ -4,6 +4,7 @@ package org.abondar.experimental.cassandrademo.command.util;
 import org.abondar.experimental.cassandrademo.command.ConnectionCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
 import org.abondar.experimental.cassandrademo.command.PreparedStatementCommand;
+import org.abondar.experimental.cassandrademo.command.QueryBuilderCommand;
 import org.abondar.experimental.cassandrademo.command.SessionCommand;
 import org.abondar.experimental.cassandrademo.command.SimpleStatementCommand;
 
@@ -32,6 +33,11 @@ public class CommandSwitcher {
                 case PSC:
                     PreparedStatementCommand psc = new PreparedStatementCommand();
                     executor.executeCommand(psc);
+                    break;
+
+                case QBC:
+                    QueryBuilderCommand qbc = new QueryBuilderCommand();
+                    executor.executeCommand(qbc);
                     break;
 
                 case SC:

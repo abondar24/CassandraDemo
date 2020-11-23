@@ -7,12 +7,14 @@ import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.querybuilder.BuiltStatement;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
 import static com.datastax.driver.core.querybuilder.QueryBuilder.eq;
 
-public class QueryBuilderDemo {
+public class QueryBuilderCommand implements Command {
 
-    public static void main(String[] args) {
+    @Override
+    public void execute() {
         Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
         Session session = cluster.connect("hotel");
         String id = "AZ789";
