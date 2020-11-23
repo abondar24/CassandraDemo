@@ -9,15 +9,19 @@ import com.datastax.driver.core.schemabuilder.SchemaBuilder;
 import com.datastax.driver.core.schemabuilder.SchemaStatement;
 import org.abondar.experimental.cassandrademo.command.util.Command;
 
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.HOTEL_KEYSPACE;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.MOTELS_TABLE;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.SERVER_IP;
+
 public class SchemaBuilderCommand implements Command {
 
     @Override
     public void execute() {
-        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
+        Cluster cluster = Cluster.builder().addContactPoint(SERVER_IP).build();
 
-        Session session = cluster.connect("hotel");
+        Session session = cluster.connect(HOTEL_KEYSPACE);
 
-        SchemaStatement motelSchema = SchemaBuilder.createTable("motels")
+        SchemaStatement motelSchema = SchemaBuilder.createTable(MOTELS_TABLE)
                 .addPartitionKey("id", DataType.uuid())
                 .addColumn("name",DataType.text())
                 .addColumn("phone",DataType.text())

@@ -5,13 +5,19 @@ import org.abondar.experimental.cassandrademo.command.util.Command;
 
 import java.text.SimpleDateFormat;
 
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.HOTEL_KEYSPACE;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.ID_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.NAME_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.PHONE_COLUMN;
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.SERVER_IP;
+
 public class SimpleStatementCommand implements Command {
 
     @Override
     public void execute() {
-        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
+        Cluster cluster = Cluster.builder().addContactPoint(SERVER_IP).build();
 
-        Session session = cluster.connect("hotel");
+        Session session = cluster.connect(HOTEL_KEYSPACE);
 
         //hotel id
         String id = "AZ123";
@@ -41,8 +47,8 @@ public class SimpleStatementCommand implements Command {
         System.out.println(selectRes.getExecutionInfo().getQueryTrace());
 
         for (Row row: selectRes){
-            System.out.format("id: %s, name: %s, phone: %s\n\n", row.getString("id"),
-                    row.getString("name"), row.getString("phone"));
+            System.out.format("id: %s, name: %s, phone: %s\n\n", row.getString(ID_COLUMN),
+                    row.getString(NAME_COLUMN), row.getString(PHONE_COLUMN));
         }
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS");

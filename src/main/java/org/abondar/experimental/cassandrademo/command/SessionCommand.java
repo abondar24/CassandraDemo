@@ -6,11 +6,13 @@ import com.datastax.driver.core.Host;
 import com.datastax.driver.core.Session;
 import org.abondar.experimental.cassandrademo.command.util.Command;
 
+import static org.abondar.experimental.cassandrademo.command.util.CommandUtil.SERVER_IP;
+
 public class SessionCommand implements Command {
 
     @Override
     public void execute() {
-        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
+        Cluster cluster = Cluster.builder().addContactPoint(SERVER_IP).build();
 
         Session session = cluster.connect();
         Session.State state = session.getState();
