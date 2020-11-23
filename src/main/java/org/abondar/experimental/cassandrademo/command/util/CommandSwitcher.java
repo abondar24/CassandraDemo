@@ -5,6 +5,7 @@ import org.abondar.experimental.cassandrademo.command.BatchCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
 import org.abondar.experimental.cassandrademo.command.MapperCommand;
+import org.abondar.experimental.cassandrademo.command.PagingCommand;
 import org.abondar.experimental.cassandrademo.command.PreparedStatementCommand;
 import org.abondar.experimental.cassandrademo.command.QueryBuilderCommand;
 import org.abondar.experimental.cassandrademo.command.ResultSetFutureCommand;
@@ -44,6 +45,11 @@ public class CommandSwitcher {
                 case MC:
                     MapperCommand mc = new MapperCommand();
                     executor.executeCommand(mc);
+                    break;
+
+                case PC:
+                    PagingCommand pc = new PagingCommand();
+                    executor.executeCommand(pc);
                     break;
 
                 case PSC:
