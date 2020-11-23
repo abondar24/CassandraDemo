@@ -3,6 +3,7 @@ package org.abondar.experimental.cassandrademo.command.util;
 
 import org.abondar.experimental.cassandrademo.command.ConnectionCommand;
 import org.abondar.experimental.cassandrademo.command.ConnectionListenerCommand;
+import org.abondar.experimental.cassandrademo.command.SessionCommand;
 
 public class CommandSwitcher {
 
@@ -24,6 +25,11 @@ public class CommandSwitcher {
                 case CLC:
                     ConnectionListenerCommand clc = new ConnectionListenerCommand();
                     executor.executeCommand(clc);
+                    break;
+
+                case SC:
+                    SessionCommand sc = new SessionCommand();
+                    executor.executeCommand(sc);
                     break;
 
             }

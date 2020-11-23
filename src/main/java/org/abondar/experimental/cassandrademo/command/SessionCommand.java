@@ -4,10 +4,13 @@ package org.abondar.experimental.cassandrademo.command;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;
 import com.datastax.driver.core.Session;
+import org.abondar.experimental.cassandrademo.command.util.Command;
 
-public class SessionDemo {
-    public static void main(String[] args) {
-        Cluster cluster = Cluster.builder().addContactPoint("172.17.0.2").build();
+public class SessionCommand implements Command {
+
+    @Override
+    public void execute() {
+        Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1").build();
 
         Session session = cluster.connect();
         Session.State state = session.getState();
@@ -21,6 +24,5 @@ public class SessionDemo {
 
         cluster.close();
         System.exit(0);
-
     }
 }
